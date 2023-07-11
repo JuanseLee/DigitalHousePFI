@@ -1,0 +1,1985 @@
+{
+	"info": {
+		"_postman_id": "ecb5a61a-464e-4cf6-903b-1defdbc2e042",
+		"name": "PFI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21693941",
+		"_collection_link": "https://warped-meadow-641719.postman.co/workspace/PFI-DH~1b72da8d-3b3d-48f5-abde-5d252ca6020e/collection/21693941-ecb5a61a-464e-4cf6-903b-1defdbc2e042?action=share&creator=21693941&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Experience",
+			"item": [
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "addExperience",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"created successfully\", function () {\r",
+											"pm.test(\"User created successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"experiencia de pruebaDOS\",\r\n\r\n    \"description\": \"experiencia de prueba para Aye y Danna\",\r\n\r\n    \"images\": [\r\n        \"https://ejemplo.com/imagen1.jpg\",\r\n        \"https://ejemplo.com/imagen2.jpg\"\r\n    ],\r\n\r\n    \"durationInDays\": 2,\r\n\r\n    \"idCategory\": 2,\r\n\r\n    \"attributes\": [1,2,3],\r\n\r\n    \"idPlace\": 2,\r\n\r\n    \"amountForPerson\": 100.1\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}experiences/create",
+									"host": [
+										"{{base_url}}experiences"
+									],
+									"path": [
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteExperience",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Deleted successfully\", function () {\r",
+											"pm.test(\"Experience deleted successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,200]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}experiences/delete/15",
+									"host": [
+										"{{base_url}}experiences"
+									],
+									"path": [
+										"delete",
+										"15"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getExperience",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Generated successfully\", function () {\r",
+											"pm.test(\"Experience generated successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}experiences/get/14",
+									"host": [
+										"{{base_url}}experiences"
+									],
+									"path": [
+										"get",
+										"14"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateExperience",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"updated successfully\", function () {\r",
+											"pm.test(\"Experience updated successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}experiences/update/1",
+									"host": [
+										"{{base_url}}experiences"
+									],
+									"path": [
+										"update",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "getRecommendation",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "experienceByCategory",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "updatePlace",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "findAllByCity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/experiences/search-by-city/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"experiences",
+								"search-by-city",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "createUser",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"created successfully\", function () {\r",
+											"pm.test(\"User created successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"jlozano@gmail.com\",\r\n\r\n    \"nickname\": \"Juanse\",\r\n\r\n    \"password\": \"Abc1234@\",\r\n\r\n    \"repeatedPassword\": \"Abc1234@\",\r\n\r\n    \"firstname\": \"Juan\",\r\n\r\n    \"lastname\": \"Lozano\",\r\n\r\n    \"birthDate\": \"30/01/95\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}users/register",
+									"host": [
+										"{{base_url}}users"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteUser",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"deleted successfully\", function () {\r",
+											"pm.test(\"User deleted successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"Bad Request - ID usuario no existe\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}users/delete/1",
+									"host": [
+										"{{base_url}}users"
+									],
+									"path": [
+										"delete",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getUser",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "updateUser",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "userRole",
+					"item": [
+						{
+							"name": "updateAdmin",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}users/user-to-admin/1",
+									"host": [
+										"{{base_url}}users"
+									],
+									"path": [
+										"user-to-admin",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateToUser",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Updated successfully\", function () {\r",
+											"pm.test(\"Role updated successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"Bad Request\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/users/admin-to-user/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"users",
+										"admin-to-user",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "activateUser",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Success\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Logged in successfully\", function () {\r",
+									"pm.test(\"user authenticated successfully\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+									"});\r",
+									"pm.test(\"Not found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"let Jsondata =  pm.response.json()\r",
+									"\r",
+									"console.log(Jsondata)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"tomasarrudasdsae@ymail.com\",\r\n\r\n    \"password\": \"Abc1234@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}authenticate",
+							"host": [
+								"{{base_url}}authenticate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "createCategory",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Created successfully\", function () {\r",
+											"pm.test(\"Category created successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"Bad Request\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}categories/create",
+									"host": [
+										"{{base_url}}categories"
+									],
+									"path": [
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteCategory",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Deleted successfully\", function () {\r",
+											"pm.test(\"Category deleted successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}categories/delete/1",
+									"host": [
+										"{{base_url}}categories"
+									],
+									"path": [
+										"delete",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "readCategory",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Generated successfully\", function () {\r",
+											"pm.test(\"Category generated successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}categories/get/1",
+									"host": [
+										"{{base_url}}categories"
+									],
+									"path": [
+										"get",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateCategory",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"updated successfully\", function () {\r",
+											"pm.test(\"Category updated successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"gastronomia\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/categories/update/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"categories",
+										"update",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attribute",
+			"item": [
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "createAttribute",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Created successfully\", function () {\r",
+											"pm.test(\"Attribute created successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"Bad Request\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"hotel\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}attributes/create",
+									"host": [
+										"{{base_url}}attributes"
+									],
+									"path": [
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteAttribute",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Deleted successfully\", function () {\r",
+											"pm.test(\"Attribute deleted successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/delete/id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"delete",
+										"id"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "readAttribute",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Generated successfully\", function () {\r",
+											"pm.test(\"Attribute generated successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}get/id",
+									"host": [
+										"{{base_url}}get"
+									],
+									"path": [
+										"id"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateAttribute",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"updated successfully\", function () {\r",
+											"pm.test(\"Category updated successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}update/ID",
+									"host": [
+										"{{base_url}}update"
+									],
+									"path": [
+										"ID"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "getAll",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Success\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Category list generated \", function () {\r",
+									"pm.test(\"Generated  successfully\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+									"});\r",
+									"pm.test(\"Not found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"let Jsondata =  pm.response.json()\r",
+									"\r",
+									"console.log(Jsondata)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}categories/get-all",
+							"host": [
+								"{{base_url}}categories"
+							],
+							"path": [
+								"get-all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "City",
+			"item": [
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "create",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Created successfully\", function () {\r",
+											"pm.test(\"City created successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"Bad Request\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.lo"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"La Plata\",\r\n\r\n    \"latitude\": 12,\r\n\r\n    \"longitude\": 11\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}cities/create",
+									"host": [
+										"{{base_url}}cities"
+									],
+									"path": [
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "read",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Generated successfully\", function () {\r",
+											"pm.test(\"generated successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "cities/get/1",
+									"host": [
+										"cities"
+									],
+									"path": [
+										"get",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Deleted successfully\", function () {\r",
+											"pm.test(\"City deleted successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}cities/delete/1",
+									"host": [
+										"{{base_url}}cities"
+									],
+									"path": [
+										"delete",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"updated successfully\", function () {\r",
+											"pm.test(\"City  updated  successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"La Plata\",\r\n\r\n    \"latitude\": 12,\r\n\r\n    \"longitude\": 11\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}cities/update/1",
+									"host": [
+										"{{base_url}}cities"
+									],
+									"path": [
+										"update",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get-all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Success\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Cities list generated \", function () {\r",
+									"pm.test(\"Generated  successfully\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+									"});\r",
+									"pm.test(\"Not found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"let Jsondata =  pm.response.json()\r",
+									"\r",
+									"console.log(Jsondata)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}cities/get-all",
+							"host": [
+								"{{base_url}}cities"
+							],
+							"path": [
+								"get-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addPlace",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Success\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"updated successfully\", function () {\r",
+									"pm.test(\"City  added  successfully\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+									"});\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"pm.test(\"Not found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"let Jsondata =  pm.response.json()\r",
+									"\r",
+									"console.log(Jsondata)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}cities/add-city/1",
+							"host": [
+								"{{base_url}}cities"
+							],
+							"path": [
+								"add-city",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removePlace",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Success\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"removed successfully\", function () {\r",
+									"pm.test(\"City  removed  successfully\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+									"});\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"pm.test(\"Not found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"let Jsondata =  pm.response.json()\r",
+									"\r",
+									"console.log(Jsondata)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cities/remove-place/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cities",
+								"remove-place",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Country",
+			"item": [
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "create",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Created successfully\", function () {\r",
+											"pm.test(\"Country created successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"Bad Request\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.lo"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Argentina\",\r\n\r\n    \"latitude\": 12,\r\n\r\n    \"longitude\": 11,\r\n\r\n    \"cities\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}countries/create",
+									"host": [
+										"{{base_url}}countries"
+									],
+									"path": [
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "read",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Generated successfully\", function () {\r",
+											"pm.test(\"generated successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}countries/get/1",
+									"host": [
+										"{{base_url}}countries"
+									],
+									"path": [
+										"get",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Deleted successfully\", function () {\r",
+											"pm.test(\"Country deleted successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}countries/delete/1",
+									"host": [
+										"{{base_url}}countries"
+									],
+									"path": [
+										"delete",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"updated successfully\", function () {\r",
+											"pm.test(\"Country  updated  successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Argentina\",\r\n\r\n    \"latitude\": 12,\r\n\r\n    \"longitude\": 11,\r\n\r\n    \"cities\": [1]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}countries/update/1",
+									"host": [
+										"{{base_url}}countries"
+									],
+									"path": [
+										"update",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get-all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Success\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Cities list generated \", function () {\r",
+									"pm.test(\"Generated  successfully\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+									"});\r",
+									"pm.test(\"Not found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"let Jsondata =  pm.response.json()\r",
+									"\r",
+									"console.log(Jsondata)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}countries/get-all",
+							"host": [
+								"{{base_url}}countries"
+							],
+							"path": [
+								"get-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Success\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"removed successfully\", function () {\r",
+									"pm.test(\"City  removed  successfully\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+									"});\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"pm.test(\"Not found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"let Jsondata =  pm.response.json()\r",
+									"\r",
+									"console.log(Jsondata)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cities/remove-place/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cities",
+								"remove-place",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Success\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"updated successfully\", function () {\r",
+									"pm.test(\"City  added  successfully\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+									"});\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"pm.test(\"Not found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"let Jsondata =  pm.response.json()\r",
+									"\r",
+									"console.log(Jsondata)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}cities/add-city/1",
+							"host": [
+								"{{base_url}}cities"
+							],
+							"path": [
+								"add-city",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Place",
+			"item": [
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "create",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Created successfully\", function () {\r",
+											"pm.test(\"Place created successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"Bad Request\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.lo"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"TEST CITY\",\r\n\r\n    \"idCity\": 2,\r\n\r\n    \"idCountry\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}places/create",
+									"host": [
+										"{{base_url}}places"
+									],
+									"path": [
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "read",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Generated successfully\", function () {\r",
+											"pm.test(\"generated successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}places/get/1",
+									"host": [
+										"{{base_url}}places"
+									],
+									"path": [
+										"get",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Deleted successfully\", function () {\r",
+											"pm.test(\"Country deleted successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											"\r",
+											"console.log(Jsondata)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}countries/delete/1",
+									"host": [
+										"{{base_url}}countries"
+									],
+									"path": [
+										"delete",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Success\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"updated successfully\", function () {\r",
+											"pm.test(\"Country  updated  successfully\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+											"});\r",
+											"pm.test(\"Not found\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"let Jsondata =  pm.response.json()\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Argentina\",\r\n\r\n    \"latitude\": 12,\r\n\r\n    \"longitude\": 11,\r\n\r\n    \"cities\": [1]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}countries/update/1",
+									"host": [
+										"{{base_url}}countries"
+									],
+									"path": [
+										"update",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get-all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Success\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Places list generated \", function () {\r",
+									"pm.test(\"Generated  successfully\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+									"});\r",
+									"pm.test(\"Not found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"let Jsondata =  pm.response.json()\r",
+									"\r",
+									"console.log(Jsondata)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}countries/places/get-all",
+							"host": [
+								"{{base_url}}countries"
+							],
+							"path": [
+								"places",
+								"get-all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "createBooking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Success\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Created successfully\", function () {\r",
+									"pm.test(\"Booking created successfully\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"let Jsondata =  pm.response.json()\r",
+									"\r",
+									"console.lo"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"people\": 2,\r\n\r\n    \"amount\": 100,\r\n \r\n    \"startDate\": \"29/06/2023\",\r\n\r\n    \"endDate\": \"31/06/2023\",\r\n\r\n    \"comment\": \"\",\r\n\r\n    \"experienceId\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}bookings/save-booking",
+							"host": [
+								"{{base_url}}bookings"
+							],
+							"path": [
+								"save-booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadBooking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Success\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Created successfully\", function () {\r",
+									"pm.test(\"Booking created successfully\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"let Jsondata =  pm.response.json()\r",
+									"console.log(Jsondata)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}experiences/bookings/get-booking",
+							"host": [
+								"{{base_url}}experiences"
+							],
+							"path": [
+								"bookings",
+								"get-booking"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
