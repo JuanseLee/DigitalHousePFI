@@ -1,0 +1,111 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build_backend:
+  stage: build
+  image: maven:latest
+  script:
+    - cd Back-end
+    - echo "Building app..."
+    - mvn clean
+    - mvn clean install
+    - echo "Finished building the app."
+  artifacts:
+    paths:
+      - Back-end/target/*.jar
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "develop"'
+    - changes:
+        - Back-end/**/*
+
+build_frontend:
+  stage: build
+  image: node:latest
+  script:
+    - echo "Building the app"
+    - cd Front-end
+    - ls
+    - npm --version
+    - npm install --legacy-peer-deps
+    - CI=false npm run build
+    - echo "Finished building the app."
+    - cd dist
+    - ls
+    - cd ..
+    - pwd
+  artifacts:
+    name: react_build
+    paths:
+      - ./Front-end/dist
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "develop"'
+    - changes:
+        - Front-end/**/*
+
+test-backend: 
+  stage: test
+  script:
+    - echo "Running unit tests... This will take about 60 seconds."
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "develop"'
+    - changes: 
+      - Back-end/**/*  
+
+test-frontend: 
+  stage: test 
+  script:
+    - echo "Running unit tests... This will take about 60 seconds."
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "develop"'
+    - changes: 
+      - Front-end/**/* 
+
+deploy_Backend:
+  stage: deploy
+  needs: [build_backend]
+  image: alpine:3.11
+  before_script:
+    - apk update && apk add openssh-client bash
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - touch ~/.ssh/config
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - ssh-keyscan -H "$DEPLOY_SERVER_IP" >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Deploying started..."
+    - ssh ubuntu@$DEPLOY_SERVER_IP "sudo systemctl stop api-grupo1.service"
+    - ssh ubuntu@$DEPLOY_SERVER_IP "mkdir -p /home/ubuntu/deploy_Backend"
+    - cd Back-end
+    - scp -i "$SSH_PRIVATE_KEY" target/*.jar ubuntu@ec2-18-222-183-145.us-east-2.compute.amazonaws.com:/home/ubuntu/deploy_Backend
+    - ssh ubuntu@$DEPLOY_SERVER_IP "chmod 755 /home/ubuntu/deploy_Backend/*.jar"
+    - ssh ubuntu@$DEPLOY_SERVER_IP "sudo systemctl start api-grupo1.service"
+    - echo "Finished deploying the app."
+  rules:
+    - changes:
+      - Back-end/**/*
+    - if: '$CI_COMMIT_REF_NAME == "main"'
+      when: manual
+    - if: '$CI_COMMIT_REF_NAME != "develop"'
+      when: never
+
+deploy_Frontend:
+  stage: deploy
+  needs: [build_frontend]
+  image: python:latest
+  script:
+    - pip install awscli
+    - aws configure set aws_secret_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - aws s3 sync Front-end/dist/ s3://digital-booking-web
+  rules:
+    - changes:
+      - Front-end/**/* 
+    - if: '$CI_COMMIT_REF_NAME == "main"'
+      when: manual
+    - if: '$CI_COMMIT_REF_NAME != "develop"'
+      when: never

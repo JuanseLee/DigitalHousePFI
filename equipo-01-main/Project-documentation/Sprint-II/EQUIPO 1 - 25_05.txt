@@ -1,0 +1,373 @@
+﻿Daily meeting
+
+
+30/05/2023
+
+
+Participantes
+
+
+Denise Barraza Neira
+Tomas Arrue
+Danna Velasquez
+Emilio Ontiveros
+Ayelen Calderon 
+Jonathan Bolatti
+Juan Sebastian Lozano
+
+
+Minuta
+
+
+¿En qué está trabajando cada uno?
+
+
+* Denise Barraza :Se actualizó el entorno de trabajo y se brindó soporte en el front en página de detalle.
+* Tomas Arrue: Trabajando en la historia de usuario de producto, redefiniendo producto, completando el CRUD faltante y las historias de crear categorías y categorizar producto.
+* Danna Velasquez: Se configura la acción de eliminar experiencia dentro del panel realizado para el Admin, se ajustan endpoints para traer los resultados en la lista de experiencias, se configura inicio de sesión con datos quemados para validar que se actualice en el header el nombre del usuario y se configura también el cerrar sesión de manera exitosa. Se inicia el componente de categorías el cual es muy similar al de productos para configurar la creación de una nueva, se continúa trabajando en esto.
+* Emilio Ontiveros: Continua el avance con componente de registro y login. Habia problema con el pull de la main pero fue resuelto. 
+* Ayelén Calderón: Se continua trabajando en seccion de detalle, se agrego calendario y mapa. falta estilar mapa
+* Jonathan Bolatti: Deployment de la instancia EC2 en AWS, conexión con base de datos y back end 
+* Juan Sebastian Lozano: Adicion de 5 casos de prueba adicionales, se asiste a la masterclass de testing para despejar dudas en torno a los requerimientos del TL. 
+
+
+¿Hay algún impedimento?
+
+
+Tomas Arrue: El Back-End está atrasado para cumplir con las historias de usuario de logueo y seguridad.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Daily meeting
+
+
+30/05/2023
+
+
+Participantes
+
+
+Denise Barraza Neira
+Tomas Arrue
+Danna Velasquez
+Emilio Ontiveros
+Ayelen Calderon 
+Jonathan Bolatti
+Juan Sebastian Lozano
+
+
+Minuta
+
+
+¿En qué está trabajando cada uno?
+
+
+* Denise Barraza :Se actualizó el entorno de trabajo y se brindó soporte en el front en página de detalle.
+* Tomas Arrue: Corrección de la clase Rol basado en la masterclass de back-end del 25/05. Los end-points de CRUD y userToAdmin y adminToUser funcionan correctamente. Continuó trabajando con el logueo del usuario, para terminar con todos los requerimientos del mismo.
+* Danna Velasquez: Se configura exitosamente la conexión entre front, back y base de datos para la creación de productos. Se realiza validación desde el front para emitir alerta en el momento de crear un producto con nombre ya existente en la base de datos. 
+* Emilio Ontiveros: Se avanza con desarrollo de código en los componentes register y login para seguir dando forma
+* Ayelén Calderón: Se terminó el Banner en conjunto  con Danna. junto Denis se trabajó en detalles y  se muestra galería de imágenes, se continuará trabajando con categoria
+* Jonathan Bolatti: Se crearon los bucket en s3 para almacenar las imágenes y la web. Trabajando con los servicios del Back para almacenar las imágenes en S3.
+* Juan Sebastian Lozano: Actualización de los endpoints (URL base) conforme al trabajo realizado por Jonathan, se continúan agregando casos al Test Plan. 
+
+
+¿Hay algún impedimento?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________
+
+
+Daily meeting
+
+
+25/05/2023
+
+
+Participantes
+
+
+Denise Barraza Neira
+Tomas Arrue
+Danna Velasquez
+Emilio Ontiveros
+Ayelen Calderon 
+Jonathan Bolatti
+Juan Sebastian Lozano
+
+
+Minuta
+
+
+¿En qué está trabajando cada uno?
+
+
+* Denise Barraza trabajando en la historia de usuario número 19, crear sección de categoría.
+* Tomas Arrue: trabajando con la clase User se presentaron problemas a la hora de asignar Roles. Se continúa trabajando con eso.
+* Danna Velasquez: Se realiza la configuración para la conexión a endpoint de creación de producto desde el front
+* Emilio Ontiveros: Inicio de formulario register y login, hoy bajo bajo las ultimas actualizaciones del proyecto contenidas en gitlab para comenzar a subir mi avance. 
+* Ayelén Calderón: Soporte en el front. trabajando en página detalles.
+* Jonathan Bolatti:Se generó tareas en trello para el sprint 2 (pedidos técnicos de infra) , se configuró los pipelines para back y front, se creó instancia en EC2 para alojar el backend.
+* Juan Sebastian Lozano: modificación del documento de pruebas siguiendo los lineamientos dados por el TL. Documento para el sprint 2 creado 
+
+
+¿Hay algún impedimento?
+
+
+Tomas Arrue: tengo problemas definiendo la clase Rol para asignar a los usuarios. En la base de datos debería reflejarse dos registro, uno para ADMIN_ROL y otro para USER_ROL. Pero no estoy consiguiendo definirlo correctamente desde el repositorio.
+Se solicita consulta con Tls.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Daily meeting
+
+
+24/05/2023
+
+
+Participantes
+
+
+Denise Barraza Neira
+Tomas Arrue
+Danna Velasquez
+Emilio Ontiveros
+Ayelen Calderon 
+Jonathan Bolatti
+Juan Sebastian Lozano
+
+
+Minuta
+
+
+¿En qué está trabajando cada uno?
+
+
+* Denise Barraza Neira organización del trello, por orden de prioridad de los requerimientos del producto. Organización de nivel de dificultad con planning poker. Propuesta de juntada asincronica diaria por fuera del horario de cursada con el fin de resolver los problemas que se nos presentan antes de la clase por si surgen dudas para poder resolverlas. Asignación de roles según los checklist de las historias de usuario en trello.
+* Tomas Arrue: trabajando con la clase User se presentaron problemas a la hora de asignar Roles, continuó trabajando con eso.
+* Danna Velasquez: Se adelanta parte de la página de detalles de producto donde se permite visualizar 5 imágenes con las características dadas en la historia de usuario, se inicia código de conectividad a endpoints del back. Se ajusta el tablero Trello con las tareas referentes al área de frontend.
+* Emilio Ontiveros: Generacion de tarjetas en Trello con su correspondientes actividades y tareas para el desarrollo, tambien cloné el nuevo repositorio de GitLab con ayuda de Tomi y ya tengo una rama nueva para poner manos en el codigo. 
+* Ayelén Calderón: Migración al nuevo proyecto integrado. Actualización del DER basados en el nuevo sprint. comunicación con Danna para brindar soporte en el front.
+* Jonathan Bolatti: Se estimaron esfuerzos de las historias de usuarios y se definieron prioridades. Se reestructuró el proyecto en gitlab para subir los avances de cada sprint de manera más organizada.
+* Juan Sebastian Lozano: Se asiste a la Masterclass de testing para validar los requerimientos en el sprint, empezamos a crear el test plan. 
+
+
+¿Hay algún impedimento?
+
+
+Tomas Arrue: tengo problemas definiendo la clase Rol para asignar a los usuarios. En la base de datos debería reflejarse dos registro, uno para ADMIN_ROL y otro para USER_ROL. Pero no estoy consiguiendo definirlo correctamente desde el repositorio.
+
+
+
+
+Daily meeting
+
+
+17/05/2023
+
+
+Participantes
+
+
+Denise Barraza Neira
+Tomas Arrue
+Danna Velasquez
+Emilio Ontiveros
+Ayelen Calderon 
+Jonathan Bolatti
+Juan Sebastian Lozano
+
+
+Minuta
+
+
+¿En qué está trabajando cada uno?
+
+
+* Denise Barraza Neira
+* Tomas Arrue: Hoy terminamos con Jonathan Bolatti el endpoint de creación y testeo en postman. Falta iniciar el endpoint de eliminado.
+* Danna Velasquez: Creación del componente para mostrar los elementos aleatorios 
+* Emilio Ontiveros: Hoy se da una revisión con respecto al back y front para afinar detalles camino hacia la presentación del primer sprint, mirar la forma de unir el front y back para consumir datos haciendo request desde el front hacia el back y se genere un response. 
+* Ayelen Calderon: Finalizando las últimas actualizaciones de DER y brindando soporte a back-end.
+* Jonathan Bolatti: se brindó soporte en la creación de los servicios de Backend y testeos de los mismos con Postman. 
+* Juan Sebastian Lozano: Inicio de ejecución de test para Front end. 30% completado. Endpoints de back end creados, se inicia con los tests y creación de scripts/ 
+
+
+¿Hay algún impedimento?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Daily meeting
+
+
+16/05/2023
+
+
+Participantes
+Denise Barraza Neira
+Tomas Arrue
+Danna Velasquez
+Emilio Ontiveros
+Ayelen Calderon 
+Jonathan Bolatti
+Juan Sebastian Lozano
+
+
+Minuta
+
+
+¿En qué está trabajando cada uno?
+
+
+* Danna Velasquez: ajuste de visualización de información de API mediante Cards, se configura para hacer consumo de la API con una de ejemplo
+
+
+* Ayelén Calderón actualización del DER con las categorías
+. 
+* Tomas Arrue: Terminado de crear los modelos de clase del repositorio back-end, comenzando con la implementación de los patrones de diseño factory y DAO.
+
+
+* Juan Sebastian Lozano:  Plan de testing completo para el sprint (Front end), segmentación entre los casos de prueba de front end, teniendo en cuenta las US y que las pruebas funcionales no aplican para este primer sprint en el ~85% de ellas,  avance con el plan de testing para el backend. 
+
+
+* Emilio Ontiveros: Se creó el componente donde se visualiza  el panel de agregar productos en rol administrador, se creó folder service con archivo baseUrl, se crean archivos Json de categorías y recomendaciones, se realizó proceso para subir frontend al repo de GitLab.   
+
+
+* Denise Barraza Neira: participando de la toma de decisiones con respecto a todas las áreas, organizando reunión con el TL de back, planteando reuniones y comunicación efectiva para mejora del equipo de trabajo, trabajando y creando la presentación de exposición. 
+* Jonathan Bolatti: graficando la presentación de infraestructura, como va a ser la relación y el mapeo, avance en el repositorio de front, creación de branchs, instrucción al equipo con respecto a gitlab.
+
+
+¿Hay algún impedimento?
+
+
+Requerimiento de una masterclass de Backend
+
+
+
+
+
+
+
+
+Daily meeting
+
+
+12/05/2023
+
+
+Participantes
+Denise Barraza Neira
+Tomas Arrue
+Danna Velasquez
+Emilio Ontiveros
+Ayelen Calderon 
+Jonathan Bolatti
+Juan Sebastian Lozano
+
+
+
+
+Minuta
+
+
+¿En qué está trabajando cada uno?
+
+
+Danna Velasquez: se incorporó la estructura de código de cards y página de detalles realizada por Ayelen dentro del proyecto principal, se le hicieron ajustes al footer respecto al copyright, se ajustaron a nivel general las fuente a Roboto y tamaños correspondientes, y en general se reestructuró el código css para dejarlos como módulos de cada componente de acuerdo a lo visto en clases.
+
+
+Denise Barraza: Terminé de descargar todos los recursos necesarios, y se completó el css del footer
+
+
+Tomas Arrue: trabaja con la clase Place que estaba dando problemas ayer. Me quedo todo para que se guarde en la base de datos.
+
+
+Ayelen Calderon me reuní con Danna para pasar en limpio las funcionalidades de las card, para hoy,  estoy participando de la clase de los Tls de infra para poder trabajar en la base de datos.
+
+
+Jonathan Bolatti: Estuvimos con tommy trabajando en el ambiente local del back, y haciendo las conexiones con la base de datos, hoy probamos subir todo
+
+
+Emilio Ontiveros: En conversación con el equipo, deje saber la idea que en nuestro modelo de negocio Digital Booking - Tour, visto el prototipo de pagina principal que se compone en bloque header, body y footer y que dendro del body se contienen dos bloques uno de categorias y otro de recomendaciones, para el bloque categoria propuse cuatro categorias a ofrecer al cliente final, estos son: tour en jet, tour en helicoptero, tour en yate y tour en bus considerando los distintos tipos de presupuestos. Porsupuesto la idea quedo abierta a contemplar mas categorias  de acuerdo a lo que mas convenga y atraiga segun estrategias para concretar muchas ventas y monetizar generando valor a la app. Hoy pienso suministrar las imagenes que seran contenidas en el bloque de categoria y recomendaciones. Esta propuesta será lleva al product owner en la weekly para su validación. 
+
+
+
+
+¿Hay algún impedimento?
+
+
+Tomas Arrue tengo problemas con el Workbench SQL. No estoy pudiendo establecer conexión con AWS ni con mi pc como localhost.
